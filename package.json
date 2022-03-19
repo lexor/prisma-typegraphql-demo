@@ -1,0 +1,38 @@
+{
+  "name": "prisma-typegraphql-demo",
+  "version": "0.0.1",
+  "main": "src/index.ts",
+  "author": "Emre Deger <ben@emre.dev>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "node dist/index.js",
+    "dev": "ts-node-dev --exit-child --transpile-only --no-notify -- ./src/index.ts",
+    "build": "yarn clean && yarn generate-schema && tsc -b",
+    "db-seed": "yarn prisma db push --force-reset && yarn prisma db seed",
+    "generate-schema": "yarn prisma generate",
+    "format-schema": "yarn prisma format",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@prisma/client": "^3.11.0",
+    "argon2": "^0.28.5",
+    "class-validator": "^0.13.2",
+    "graphql": "15.3.0",
+    "graphql-middleware": "^6.1.18",
+    "graphql-yoga": "^1.18.3",
+    "jsonwebtoken": "^8.5.1",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^8.5.8",
+    "prisma": "^3.11.0",
+    "tasuku": "^1.0.2",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.6.2"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  }
+}
